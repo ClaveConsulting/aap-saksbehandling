@@ -84,19 +84,12 @@ export const InnhentDokumentasjonSkjema = ({ onCancel, onSuccess }: Props) => {
     }
   );
 
-  const skalViseDialogmeldingOption = useFeatureFlag('VisValgForDialogmelding');
-  const optionsForTypeDokumentasjon = skalViseDialogmeldingOption
-    ? [
-        { label: 'Velg dokument', value: '' },
-        { label: 'Tilleggsopplysninger (L8)', value: 'L8' },
-        { label: 'Legeerklæring ved arbeidsuførhet (L40)', value: 'L40' },
-        { label: 'Melding fra Nav', value: 'MELDING_FRA_NAV' },
-      ]
-    : [
-        { label: 'Velg dokumentasjonstype', value: '' },
-        { label: 'Tilleggsopplysninger (L8)', value: 'L8' },
-        { label: 'Legeerklæring ved arbeidsuførhet (L40)', value: 'L40' },
-      ];
+  const optionsForTypeDokumentasjon = [
+    { label: 'Velg dokument', value: '' },
+    { label: 'Tilleggsopplysninger (L8)', value: 'L8' },
+    { label: 'Legeerklæring ved arbeidsuførhet (L40)', value: 'L40' },
+    { label: 'Melding fra Nav', value: 'MELDING_FRA_NAV' },
+  ];
 
   const fastlegeResponse = isSuccess(fastlege) ? fastlege.data : undefined;
   const fastlegeDto = fastlegeResponse?.fastlege;
