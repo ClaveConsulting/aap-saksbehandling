@@ -5,10 +5,10 @@ import { JaEllerNei, JaEllerNeiOptions } from 'lib/utils/form';
 import { validerDato } from 'lib/validation/dateValidation';
 import { useFormContext } from 'react-hook-form';
 
-import { StudentFormFields } from 'components/behandlinger/sykdom/student/studentvurdering/StudentVurdering';
 import { DateInputWrapper } from 'components/form/dateinputwrapper/DateInputWrapper';
 import { RadioGroupWrapper } from 'components/form/radiogroupwrapper/RadioGroupWrapper';
 import { TextAreaWrapper } from 'components/form/textareawrapper/TextAreaWrapper';
+import { StudentFormFields } from 'components/behandlinger/sykdom/student/studentvurdering/StudentVurderingV2';
 
 interface Props {
   index: number;

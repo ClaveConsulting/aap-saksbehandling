@@ -52,7 +52,6 @@ export const Sykdom = async ({ behandlingsreferanse, flyt }: Props) => {
   const overgangarbeidSteg = getStegData(aktivStegGruppe, 'OVERGANG_ARBEID', flyt);
   const oppgittYrkesskadeInfoSteg = hentStegDataForOppgittYrkesskadeInfo(yrkesskadeVurderingGrunnlag.data);
 
-  const skalViseStudentV2 = unleashService.isEnabled('StudentV2');
   const skalViseAlleSykdomSteg = unleashService.isEnabled('SkalViseAlleSykdomssteg');
 
   return (
@@ -150,7 +149,7 @@ export const Sykdom = async ({ behandlingsreferanse, flyt }: Props) => {
           <OppgittYrkesskadeUtenRegistertreffInfo grunnlag={yrkesskadeVurderingGrunnlag.data} />
         </StegSuspense>
       )}
-      {vurderStudentStegV2.skalViseSteg && skalViseStudentV2 && (
+      {vurderStudentStegV2.skalViseSteg && (
         <StegSuspense>
           <StudentvurderingMedDataFetching behandlingsreferanse={behandlingsreferanse} stegData={vurderStudentStegV2} />
         </StegSuspense>

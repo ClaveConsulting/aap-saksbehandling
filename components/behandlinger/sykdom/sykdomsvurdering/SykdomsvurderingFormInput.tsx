@@ -1,7 +1,6 @@
 'use client';
 
 import { Radio, VStack } from '@navikt/ds-react';
-import { useFeatureFlag } from 'context/UnleashContext';
 import { Sak } from 'context/saksbehandling/SakContext';
 import { parse } from 'date-fns';
 import { Periode, StudentGrunnlag } from 'lib/types/types';
@@ -61,9 +60,7 @@ export const SykdomsvurderingFormInput = ({
 }: Props) => {
   const harNedsattArbeidsevne = form.watch(`vurderinger.${index}.harNedsattArbeidsevne`);
   const skalViseNedsettelse = harNedsattArbeidsevne === 'JA' || harNedsattArbeidsevne === 'JA_FORBIGÅENDE_PROBLEMER';
-  const skalViseNeiMenStudent = useFeatureFlag('StudentV2');
   const skalViseStudentSoknad =
-    skalViseNeiMenStudent &&
     studentgrunnlag.oppgittStudent?.erStudentStatus === 'AVBRUTT' &&
     (studentgrunnlag.oppgittStudent?.skalGjenopptaStudieStatus === 'JA' ||
       studentgrunnlag.oppgittStudent?.skalGjenopptaStudieStatus === 'VET_IKKE');
@@ -139,9 +136,7 @@ export const SykdomsvurderingFormInput = ({
               >
                 <Radio value={'JA'}>{JaNeiEllerForbigåendeTekst.Ja}</Radio>
                 <Radio value={'JA_FORBIGÅENDE_PROBLEMER'}>{JaNeiEllerForbigåendeTekst.Forbigående}</Radio>
-                {skalViseNeiMenStudent && (
-                  <Radio value={'NEI_MEN_STUDENT'}>{JaNeiEllerForbigåendeTekst.NeiMenStudent}</Radio>
-                )}
+                <Radio value={'NEI_MEN_STUDENT'}>{JaNeiEllerForbigåendeTekst.NeiMenStudent}</Radio>
                 <Radio value={'NEI'}>{JaNeiEllerForbigåendeTekst.Nei}</Radio>
               </RadioGroupWrapper>
 
@@ -177,9 +172,7 @@ export const SykdomsvurderingFormInput = ({
           >
             <Radio value={'JA'}>{JaNeiEllerForbigåendeTekst.Ja}</Radio>
             <Radio value={'JA_FORBIGÅENDE_PROBLEMER'}>{JaNeiEllerForbigåendeTekst.Forbigående}</Radio>
-            {skalViseNeiMenStudent && (
-              <Radio value={'NEI_MEN_STUDENT'}>{JaNeiEllerForbigåendeTekst.NeiMenStudent}</Radio>
-            )}
+            <Radio value={'NEI_MEN_STUDENT'}>{JaNeiEllerForbigåendeTekst.NeiMenStudent}</Radio>
             <Radio value={'NEI'}>{JaNeiEllerForbigåendeTekst.Nei}</Radio>
           </RadioGroupWrapper>
           {form.watch(`vurderinger.${index}.harNedsattArbeidsevne`) === 'NEI' && (
