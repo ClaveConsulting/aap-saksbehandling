@@ -1,7 +1,7 @@
 'use client';
 
 import { GavelSoundBlockIcon } from '@navikt/aksel-icons';
-import { BodyLong, BodyShort, Box, Button, HStack, Tag, VStack } from '@navikt/ds-react';
+import { BodyLong, BodyShort, Box, Button, Detail, HStack, Tag, VStack } from '@navikt/ds-react';
 import { UføreVedtakStatus } from 'lib/types/oppgaveTypes';
 import { formaterDatoForFrontend } from 'lib/utils/date';
 import { mapTilResultat } from 'lib/utils/oversettelser';
@@ -32,19 +32,20 @@ export const UførevedtakInfoBoks = ({ behandlingsReferanse, virkningsdato, resu
         <Box maxWidth={'400px'} minWidth={'400px'}>
           <VStack gap={'space-0'}>
             <Tag
-              data-color="meta-purple"
+              data-color="brand-blue"
               icon={<GavelSoundBlockIcon />}
               variant={'moderate'}
               size={'medium'}
               className={styles.tag}
             >
               <BodyShort size={'small'} weight={'semibold'}>
-                {formaterDatoForFrontend(virkningsdato)}
+                Vedtak om uføretrygd er fattet
               </BodyShort>
             </Tag>
             <Box padding={'space-8'}>
               <BodyLong size={'small'}>
-                Det er fattet et vedtak om {resultat && mapTilResultat(resultat)} av uføretrygd med virkningsdato{' '}
+                <Detail textColor="subtle">Begrunnelse</Detail>
+                Det er fattet et vedtak om uføre med {resultat && mapTilResultat(resultat)}{' '}
                 {formaterDatoForFrontend(virkningsdato)}
               </BodyLong>
             </Box>

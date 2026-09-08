@@ -149,6 +149,11 @@ export async function fjernHelseopplysningIkon(behandlingRef: string) {
   return await apiFetch<{}>(url, oppgaveApiScope, 'POST', { behandlingRef: behandlingRef });
 }
 
+export async function fjernUføreVedtakIkon(behandlingRef: string) {
+  const url = `${oppgaveApiBaseURL}/fjern-uførevedtak-ikon`;
+  return await apiFetch<{}>(url, oppgaveApiScope, 'POST', { behandlingRef: behandlingRef });
+}
+
 const lokalFakeOppgaveSøk = isLocal();
 export async function oppgaveTekstSøk(søketekst: string) {
   if (lokalFakeOppgaveSøk) {
