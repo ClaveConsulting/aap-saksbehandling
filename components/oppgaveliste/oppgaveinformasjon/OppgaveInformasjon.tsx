@@ -12,6 +12,8 @@ import { SvarFraBehandler } from 'components/oppgaveliste/svarfrabehandler/SvarF
 import { UtløptVentefristBoks } from 'components/oppgaveliste/utløptventefristboks/UtløptVentefristBoks';
 
 import { Returboks } from '../returboks/Returboks';
+import { UførevedtakInfoBoks } from '../uførevedtakBoks/UførevedtakInfoBoks';
+import { useState } from 'react';
 
 interface Props {
   oppgave: OppgaveMedKontekst;
@@ -20,6 +22,7 @@ interface Props {
 export const OppgaveInformasjon = ({ oppgave }: Props) => {
   const adressebeskyttelser = utledAdressebeskyttelse(oppgave.oppgavelisteTags.skjermingInfo);
   const ventStatusForTilbakekreving = useFeatureFlag('VentStatusForTilbakekreving');
+  const [visUføreTag, settVisUføreTag] = useState(!!oppgave.oppgavelisteTags.uføreVedtak);
   return (
     <HStack gap={'space-4'}>
       {oppgave.oppgavelisteTags.påVentInfo &&
@@ -56,6 +59,14 @@ export const OppgaveInformasjon = ({ oppgave }: Props) => {
           size={'xsmall'}
         />
       ))}
+      {visUføreTag && oppgave.oppgavelisteTags.uføreVedtak && (
+        <UførevedtakInfoBoks
+          oppdaterVisUforeTag={settVisUføreTag}
+          virkningsdato={oppgave.oppgavelisteTags.uføreVedtak.virkningsdato}
+          behandlingsReferanse={oppgave.behandlingskontekst.behandlingsreferanse}
+          resultat={oppgave.oppgavelisteTags.uføreVedtak.resultat}
+        />
+      )}
     </HStack>
   );
 };

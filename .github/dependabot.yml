@@ -6,11 +6,11 @@ registries:
     token: ${{ secrets.READER_TOKEN }}
 updates:
   - package-ecosystem: 'docker'
-    directory: "/"
+    directory: '/'
     schedule:
-      interval: "cron"
-      cronjob: "0 6 1,15 * *" # 1 og 15 hver måned
-      timezone: "Europe/Oslo"
+      interval: 'cron'
+      cronjob: '0 6 1,15 * *' # 1 og 15 hver måned
+      timezone: 'Europe/Oslo'
     cooldown:
       default-days: 7
     ignore:
@@ -22,9 +22,9 @@ updates:
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
-      interval: "cron"
-      cronjob: "0 6 1,15 * *" # 1 og 15 hver måned
-      timezone: "Europe/Oslo"
+      interval: 'cron'
+      cronjob: '0 6 1,15 * *' # 1 og 15 hver måned
+      timezone: 'Europe/Oslo'
     cooldown:
       default-days: 7
     groups:
@@ -32,11 +32,11 @@ updates:
         patterns:
           - '*'
   - package-ecosystem: npm
-    directory: "/"
+    directory: '/'
     schedule:
-      interval: "cron"
-      cronjob: "0 6 1,15 * *" # 1 og 15 hver måned
-      timezone: "Europe/Oslo"
+      interval: 'cron'
+      cronjob: '0 6 1,15 * *' # 1 og 15 hver måned
+      timezone: 'Europe/Oslo'
     cooldown:
       default-days: 7
       exclude:
@@ -47,13 +47,13 @@ updates:
     registries: '*'
     ignore:
       - dependency-name: '*'
-        update-types: [ 'version-update:semver-major' ]
+        update-types: ['version-update:semver-major']
       - dependency-name: '@navikt/eslint-config-aap'
       - dependency-name: 'prettier'
       - dependency-name: '@typescript-eslint*'
       - dependency-name: 'eslint-*'
       - dependency-name: 'eslint'
-        versions: [ '9.x' ]
+        versions: ['9.x']
     groups:
       aap-deps:
         patterns:

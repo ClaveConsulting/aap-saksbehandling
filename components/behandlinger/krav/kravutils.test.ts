@@ -70,7 +70,11 @@ describe('kravVurderingTilFormFields og søknadUtenKravTilFormFields', () => {
 
   it('mapper overstyrMuligRettFra når det finnes på kravet', () => {
     const krav = relevantKrav({
-      overstyrMuligRettFra: { dato: '2025-06-15', årsak: 'MisvisendeOpplysninger', begrunnelse: 'Feil informasjon fra Nav' },
+      overstyrMuligRettFra: {
+        dato: '2025-06-15',
+        årsak: 'MisvisendeOpplysninger',
+        begrunnelse: 'Feil informasjon fra Nav',
+      },
     });
 
     const felter = kravVurderingTilFormFields(krav);
@@ -287,7 +291,7 @@ describe('byggKravVurderingerFraSkjema', () => {
       ...søknadUtenKravTilFormFields(søknad),
       begrunnelse: 'Har begrunnelse, men søknadsdato er tømt',
       søknadsdatoDato: '',
-      skalVurderesForNyEllerGjenopptattAAPRettighet: 'ja'
+      skalVurderesForNyEllerGjenopptattAAPRettighet: 'ja',
     };
 
     expect(() => byggKravVurderingerFraSkjema(grunnlagMedSøknad, { 'jp-uten-dato': ugyldigUtkast })).toThrow();

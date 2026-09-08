@@ -300,7 +300,10 @@ export enum SøknadsdatoEndresValg {
 }
 
 export const SøknadsdatoEndresOptions: ValuePair[] = [
-  { label: 'Ja, bruker har søkt tidligere enn første registrerte søknad', value: SøknadsdatoEndresValg.BrukerHarSøktTidligere },
+  {
+    label: 'Ja, bruker har søkt tidligere enn første registrerte søknad',
+    value: SøknadsdatoEndresValg.BrukerHarSøktTidligere,
+  },
   { label: 'Ja, søknadsdato er feilregistrert', value: SøknadsdatoEndresValg.FeilregistrertSøknadsdato },
   { label: 'Nei', value: SøknadsdatoEndresValg.Nei },
 ];

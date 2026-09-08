@@ -55,7 +55,10 @@ describe('filtrer årsaker for type behandling', () => {
       vurderingsbehov: [{ type: 'MOTTATT_LEGEERKLÆRING', oppdatertTid: '2026-01-01' }],
       beskrivelse: undefined,
     };
-    const filtrert = filtrerÅrsakerForBehandlingType([helseopplysninger, årsakUtenBeskrivelse], 'Førstegangsbehandling');
+    const filtrert = filtrerÅrsakerForBehandlingType(
+      [helseopplysninger, årsakUtenBeskrivelse],
+      'Førstegangsbehandling'
+    );
     expect(filtrert).toHaveLength(1);
     expect(filtrert[0]).toEqual(helseopplysninger);
   });

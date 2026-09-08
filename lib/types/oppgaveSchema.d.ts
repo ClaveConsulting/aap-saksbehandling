@@ -782,6 +782,43 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  '/fjern-uf\u00F8revedtak-ikon': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post: {
+      parameters: {
+        query?: never;
+        header?: never;
+        path?: never;
+        cookie?: never;
+      };
+      requestBody?: {
+        content: {
+          'application/json': components['schemas']['no.nav.aap.oppgave.uf\u00F8reVedtak.Uf\u00F8reVedtak'];
+        };
+      };
+      responses: {
+        /** @description OK */
+        200: {
+          headers: {
+            [name: string]: unknown;
+          };
+          content?: never;
+        };
+      };
+    };
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   '/mine-siste-oppgaver': {
     parameters: {
       query?: never;
@@ -1868,10 +1905,19 @@ export interface components {
       personIdent: string;
       referanse: components['schemas']['no.nav.aap.behandlingsflyt.kontrakt.behandling.BehandlingReferanse'];
       'relevanteIdenterP\u00E5Behandling'?: string[] | null;
+      /**
+       * @deprecated
+       * @description Kan fjernes når oppgave har byttet til å bruke reserverTilPerAvklaringsbehov
+       */
       reserverTil?: string | null;
+      /** @description Key type: kotlin.String */
+      reserverTilPerAvklaringsbehov?: {
+        [key: string]: string;
+      } | null;
       saksnummer: components['schemas']['no.nav.aap.behandlingsflyt.kontrakt.sak.Saksnummer'];
       /** @enum {string} */
       status: 'AVSLUTTET' | 'IVERKSETTES' | 'OPPRETTET' | 'UTREDES';
+      'uf\u00F8reVedtak'?: components['schemas']['no.nav.aap.behandlingsflyt.kontrakt.hendelse.Uf\u00F8revedtakDto'];
       versjon: string;
       vurderingsbehov: string[];
       /** @enum {string} */
@@ -2031,6 +2077,15 @@ export interface components {
       /** @enum {string|null} */
       venteGrunn?: 'AVVENTER_BRUKERUTTALELSE' | null;
     };
+    'no.nav.aap.behandlingsflyt.kontrakt.hendelse.Uf\u00F8revedtakDto': {
+      /** @enum {string} */
+      resultat: 'AVSLAG' | 'ENDRET' | 'INNVILGELSE' | 'OPPHØR';
+      /**
+       * Format: date
+       * @example 2025-04-01
+       */
+      virkningsdato: string;
+    };
     'no.nav.aap.behandlingsflyt.kontrakt.hendelse.\u00C5rsakTilRetur': {
       /** @enum {string} */
       '\u00E5rsak':
@@ -2079,6 +2134,8 @@ export interface components {
        * @example 2025-04-01T12:30:00
        */
       'planlagtKj\u00F8retidspunkt': string;
+      /** Format: int32 */
+      prioritet?: number | null;
       /** @enum {string} */
       status: 'AVBRUTT' | 'FEILET' | 'FERDIG' | 'KLAR' | 'PLUKKET';
       tilleggsinfo?: components['schemas']['no.nav.aap.motor.JobbTilleggsinfo'];
@@ -2145,6 +2202,17 @@ export interface components {
     'no.nav.aap.oppgave.TilbakekrevingsVarsDto': {
       tilbakekrevings_URL: string;
       'tilbakekrevings_bel\u00F8p': number;
+    };
+    'no.nav.aap.oppgave.Uf\u00F8revedtakRespons': {
+      /** Format: uuid */
+      referanse: string;
+      /** @enum {string} */
+      resultat: 'AVSLAG' | 'ENDRET' | 'INNVILGELSE' | 'OPPHØR';
+      /**
+       * Format: date
+       * @example 2025-04-01
+       */
+      virkningsdato: string;
     };
     'no.nav.aap.oppgave.drift.AvklaringsbehovDto': {
       kode: string;
@@ -2349,6 +2417,7 @@ export interface components {
       returInformasjon?: components['schemas']['no.nav.aap.oppgave.ReturInformasjonDto'];
       saksnummer?: string | null;
       skjermingInfo: components['schemas']['no.nav.aap.oppgave.hent.SkjermingInfoResponse'];
+      'uf\u00F8revedtakinfo'?: components['schemas']['no.nav.aap.oppgave.Uf\u00F8revedtakRespons'];
       'utl\u00F8ptVenteInfo'?: components['schemas']['no.nav.aap.oppgave.hent.VenteInformasjonResponse'];
       /** Format: int64 */
       versjon: number;
@@ -2462,6 +2531,7 @@ export interface components {
       'p\u00E5VentInfo'?: components['schemas']['no.nav.aap.oppgave.hent.VenteInformasjonResponse'];
       returInformasjon?: components['schemas']['no.nav.aap.oppgave.ReturInformasjonDto'];
       skjermingInfo: components['schemas']['no.nav.aap.oppgave.hent.SkjermingInfoResponse'];
+      'uf\u00F8reVedtak'?: components['schemas']['no.nav.aap.oppgave.Uf\u00F8revedtakRespons'];
     };
     'no.nav.aap.oppgave.liste.Paging': {
       /** Format: int32 */
@@ -2608,6 +2678,17 @@ export interface components {
       erTildeltInnloggetBruker: boolean;
       tildeltSaksbehandlerIdent?: string | null;
       tildeltSaksbehandlerNavn?: string | null;
+    };
+    'no.nav.aap.oppgave.uf\u00F8reVedtak.Uf\u00F8reVedtak': {
+      /** Format: uuid */
+      referanse: string;
+      /** @enum {string} */
+      status: 'AVSLAG' | 'ENDRET' | 'INNVILGELSE' | 'OPPHØR';
+      /**
+       * Format: date
+       * @example 2025-04-01
+       */
+      virkningsdato: string;
     };
     'no.nav.aap.postmottak.kontrakt.avklaringsbehov.Definisjon': {
       /** @enum {string} */

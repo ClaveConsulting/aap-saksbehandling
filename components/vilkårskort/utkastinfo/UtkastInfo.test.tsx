@@ -21,11 +21,7 @@ describe('UtkastInfo', () => {
 
   it('viser "Slett utkast"-knapp når ikke readOnly og onDeleteMellomlagringClick er satt', () => {
     render(
-      <UtkastInfo
-        mellomlagretVurdering={mellomlagretVurdering}
-        readOnly={false}
-        onDeleteMellomlagringClick={vi.fn()}
-      />,
+      <UtkastInfo mellomlagretVurdering={mellomlagretVurdering} readOnly={false} onDeleteMellomlagringClick={vi.fn()} />
     );
 
     expect(screen.getByRole('button', { name: 'Slett utkast' })).toBeVisible();
@@ -38,9 +34,7 @@ describe('UtkastInfo', () => {
   });
 
   it('viser ingenting når mellomlagretVurdering er undefined', () => {
-    render(
-      <UtkastInfo mellomlagretVurdering={undefined} readOnly={false} onDeleteMellomlagringClick={vi.fn()} />,
-    );
+    render(<UtkastInfo mellomlagretVurdering={undefined} readOnly={false} onDeleteMellomlagringClick={vi.fn()} />);
 
     expect(screen.queryByText(/Utkast lagret/)).not.toBeInTheDocument();
     expect(screen.queryByRole('button', { name: 'Slett utkast' })).not.toBeInTheDocument();
@@ -48,11 +42,7 @@ describe('UtkastInfo', () => {
 
   it('viser ikke utkast-info når readOnly og visVentekort er false', () => {
     render(
-      <UtkastInfo
-        mellomlagretVurdering={mellomlagretVurdering}
-        readOnly={true}
-        onDeleteMellomlagringClick={vi.fn()}
-      />,
+      <UtkastInfo mellomlagretVurdering={mellomlagretVurdering} readOnly={true} onDeleteMellomlagringClick={vi.fn()} />
     );
 
     expect(screen.queryByText(/Utkast lagret/)).not.toBeInTheDocument();
@@ -62,11 +52,7 @@ describe('UtkastInfo', () => {
     setMockFlytResponse({ ...defaultFlytResponse, visning: { ...defaultFlytResponse.visning, visVentekort: true } });
 
     render(
-      <UtkastInfo
-        mellomlagretVurdering={mellomlagretVurdering}
-        readOnly={true}
-        onDeleteMellomlagringClick={vi.fn()}
-      />,
+      <UtkastInfo mellomlagretVurdering={mellomlagretVurdering} readOnly={true} onDeleteMellomlagringClick={vi.fn()} />
     );
 
     expect(screen.getByText('Utkast lagret 21.08.2025 12:00 (Jan T. Loven)')).toBeVisible();

@@ -62,6 +62,6 @@ function buildEventData(payload: UmamiKelvinEvent): UmamiEventData {
     case 'SYKDOMSVURDERING':
       return {
         antallSpoersmaalFraMal: payload.antallSpoersmaalFraMal,
-      }
+      };
   }
 }
