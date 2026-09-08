@@ -10,7 +10,7 @@ metadata:
     team: aap
     systemkatalog.nav.no/system: SK-268
 spec:
-  image: { { image } }
+  image: {{image}}
   ingresses:
     - https://kelvin.intern.nav.no
   port: 3000
