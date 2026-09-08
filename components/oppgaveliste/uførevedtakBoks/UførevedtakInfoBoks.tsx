@@ -25,7 +25,7 @@ export const UførevedtakInfoBoks = ({ behandlingsReferanse, virkningsdato, resu
   return (
     <TagMedPopover
       ikon={<GavelSoundBlockIcon title={'Vedtak om uføretrygd er fattet'} />}
-      dataColor={'meta-purple'}
+      dataColor={'brand-blue'}
       størrelse={'small'}
       tagContent={'Uføretrygd'}
       popoverContent={
@@ -61,7 +61,7 @@ export const UførevedtakInfoBoks = ({ behandlingsReferanse, virkningsdato, resu
               size={'small'}
               variant={'secondary'}
               onClick={() =>
-                fjernTag(behandlingsReferanse).then((response) => {
+                fjernTag({ referanse: behandlingsReferanse, status: resultat!, virkningsdato }).then((response) => {
                   if (response.ok) {
                     oppdaterVisUforeTag(false);
                   }

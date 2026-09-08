@@ -5,6 +5,7 @@ import { getErrorMessage } from 'lib/utils/errorUtil';
 import { FetchResponse, isError, isSuccess } from 'lib/utils/api';
 import { postmottakSettPåVentClient } from 'lib/postmottakClientApi';
 import { SettPåVentRequest } from 'lib/types/postmottakTypes';
+import { UføreVedtak } from 'lib/types/oppgaveTypes';
 import { clientFjernUføreVedtakTag, clientMottattDokumenterLest } from 'lib/oppgaveClientApi';
 
 export function useFetch<FunctionParameters extends unknown[], ResponseBody>(
@@ -102,13 +103,13 @@ export function useMottattDokumenterLest(): {
 }
 
 export function useFjernUføreVedtakTag(): {
-  fjernTag: (behandlingsreferanse: string) => Promise<{ ok: boolean }>;
+  fjernTag: (uføreVedtak: UføreVedtak) => Promise<{ ok: boolean }>;
   isLoading: boolean;
   error?: string;
 } {
   const { method, isLoading, error } = useFetch(clientFjernUføreVedtakTag);
-  async function fjernUforeTag(behandlingsreferanse: string) {
-    return await method(behandlingsreferanse);
+  async function fjernUforeTag(uføreVedtak: UføreVedtak) {
+    return await method(uføreVedtak);
   }
 
   return { fjernTag: fjernUforeTag, isLoading, error };
