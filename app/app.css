@@ -1,5 +1,4 @@
 @import '@navikt/ds-css' layer(aksel);
-@import '@navikt/aap-breveditor-css';
 @import 'styles/globals.css';
 
 div.endringslogg {
