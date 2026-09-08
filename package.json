@@ -18,7 +18,7 @@
     "run-prettier": "prettier --write .",
     "gen-umami-docs": "node scripts/generate-umami-docs.mjs"
   },
-  "prettier": "@navikt/aap-felles-prettier",
+  "prettier": { "singleQuote": true, "printWidth": 120, "trailingComma": "es5" },
   "dependencies": {
     "@grafana/faro-web-sdk": "2.10.0",
     "@grafana/faro-web-tracing": "2.10.0",

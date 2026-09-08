@@ -1,6 +1,6 @@
 'use client';
 
-import { BrevbyggerBeta } from '@navikt/aap-breveditor/';
+import { BrevbyggerBeta } from 'components/behandlinger/brev/skriveBrev/BrevbyggerBeta';
 import { ChevronDownIcon, GlassIcon, TrashIcon } from '@navikt/aksel-icons';
 import { ActionMenu, BodyShort, Button, HStack, Label, List, Loader, LocalAlert, VStack } from '@navikt/ds-react';
 import { useDebounce } from 'hooks/DebounceHook';
