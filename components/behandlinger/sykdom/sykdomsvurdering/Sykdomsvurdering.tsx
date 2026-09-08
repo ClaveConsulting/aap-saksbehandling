@@ -271,10 +271,7 @@ export const Sykdomsvurdering = ({
             key={vurdering.id}
             accordionsSignal={accordionsSignal}
             fraDato={gyldigDatoEllerNull(form.watch(`vurderinger.${index}.fraDato`))}
-            vurderingStatus={utledVurderingStatus(
-              form.watch(`vurderinger.${index}`),
-              grunnlag.skalVurdereYrkesskade
-            )}
+            vurderingStatus={utledVurderingStatus(form.watch(`vurderinger.${index}`), grunnlag.skalVurdereYrkesskade)}
             nestePeriodeFraDato={gyldigDatoEllerNull(form.watch(`vurderinger.${index + 1}.fraDato`))}
             isLast={index === nyeVurderingerFields.length - 1}
             vurdering={vurdering}

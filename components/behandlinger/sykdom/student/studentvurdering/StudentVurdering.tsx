@@ -60,7 +60,7 @@ export interface StudentVurdering extends VurderingFormMeta {
 
 type DraftFormFields = Partial<StudentFormFields>;
 
-export const StudentVurderingV2 = ({ readOnly, initialMellomlagretVurdering, grunnlag, behandlingVersjon }: Props) => {
+export const StudentVurdering = ({ readOnly, initialMellomlagretVurdering, grunnlag, behandlingVersjon }: Props) => {
   const { behandlingsreferanse } = useParamsMedType();
 
   const { accordionsSignal, closeAllAccordions } = useAccordionsSignal();

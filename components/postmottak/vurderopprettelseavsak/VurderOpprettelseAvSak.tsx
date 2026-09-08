@@ -185,7 +185,9 @@ export const VurderOpprettelseAvSak = ({
               <VStack gap="space-4">
                 <Label size="small">Gjenstående unntaksperiode §11-12 andre og tredje ledd</Label>
                 <BodyShort size="small">
-                  {gjenståendeUnntaksDager != null && gjenståendeUnntaksDager > 0 ? `${gjenståendeUnntaksDager} dager` : '-'}
+                  {gjenståendeUnntaksDager != null && gjenståendeUnntaksDager > 0
+                    ? `${gjenståendeUnntaksDager} dager`
+                    : '-'}
                 </BodyShort>
               </VStack>
             </HStack>

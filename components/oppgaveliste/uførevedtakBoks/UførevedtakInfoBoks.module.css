@@ -1,0 +1,5 @@
+.tag {
+  justify-content: left;
+  height: var(--ax-space-40);
+  padding-top: var(--ax-space-8);
+}

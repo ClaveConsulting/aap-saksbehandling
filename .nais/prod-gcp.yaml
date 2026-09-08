@@ -1,9 +1,9 @@
-apiVersion: "nais.io/v1alpha1"
-kind: "Application"
+apiVersion: 'nais.io/v1alpha1'
+kind: 'Application'
 metadata:
   annotations:
-    nginx.ingress.kubernetes.io/proxy-body-size: "50M"
-    nginx.ingress.kubernetes.io/proxy-read-timeout: "90"
+    nginx.ingress.kubernetes.io/proxy-body-size: '50M'
+    nginx.ingress.kubernetes.io/proxy-read-timeout: '90'
   name: saksbehandling
   namespace: aap
   labels:

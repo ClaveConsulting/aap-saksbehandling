@@ -63,6 +63,12 @@ export function clientMottattDokumenterLest(behandlingsreferanse: string) {
   });
 }
 
+export function clientFjernUføreVedtakTag(behandlingsreferanse: string) {
+  return clientFetch(`/oppgave/api/oppgave/fjern-uførevedtak-ikon`, 'POST', {
+    behandlingRef: behandlingsreferanse,
+  });
+}
+
 export function clientFjernHelseopplysningIkon(behandlingsreferanse: string) {
   return clientFetch(`/oppgave/api/oppgave/fjern-helseopplysning-ikon`, 'POST', {
     behandlingRef: behandlingsreferanse,

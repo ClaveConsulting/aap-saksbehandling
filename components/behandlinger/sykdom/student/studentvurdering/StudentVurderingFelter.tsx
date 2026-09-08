@@ -8,7 +8,7 @@ import { useFormContext } from 'react-hook-form';
 import { DateInputWrapper } from 'components/form/dateinputwrapper/DateInputWrapper';
 import { RadioGroupWrapper } from 'components/form/radiogroupwrapper/RadioGroupWrapper';
 import { TextAreaWrapper } from 'components/form/textareawrapper/TextAreaWrapper';
-import { StudentFormFields } from 'components/behandlinger/sykdom/student/studentvurdering/StudentVurderingV2';
+import { StudentFormFields } from 'components/behandlinger/sykdom/student/studentvurdering/StudentVurdering';
 
 interface Props {
   index: number;

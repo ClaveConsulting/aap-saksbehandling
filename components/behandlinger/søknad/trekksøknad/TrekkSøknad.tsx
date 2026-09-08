@@ -26,7 +26,7 @@ type TrukketSøknadÅrsak = TrukketSøknadVurdering['aarsak'];
 interface FormFields {
   begrunnelse: string;
   skalTrekkes?: string;
-  aarsak?: TrukketSøknadÅrsak
+  aarsak?: TrukketSøknadÅrsak;
 }
 
 type DraftFormFields = Partial<FormFields>;
@@ -97,7 +97,7 @@ export const TrekkSøknad = ({ grunnlag, readOnly, behandlingVersjon, initialMel
             behovstype: Behovstype.VURDER_TREKK_AV_SØKNAD_KODE,
             begrunnelse: data.begrunnelse,
             skalTrekkes: data.skalTrekkes === JaEllerNei.Ja,
-            aarsak: data.aarsak || undefined
+            aarsak: data.aarsak || undefined,
           },
           referanse: behandlingsreferanse,
         });

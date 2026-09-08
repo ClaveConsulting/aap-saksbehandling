@@ -22,7 +22,7 @@ jobs:
       NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
       SKIP_YARN_COREPACK_CHECK: true
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
       - uses: navikt/github-app-token-generator@b96ff604b2300989cd1105e3fad09199fca56681 # v1.2.1
         id: get-behandlingsflyt-token
@@ -36,7 +36,7 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.get-behandlingsflyt-token.outputs.token }}
 
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
         with:
           node-version: 22
           cache: yarn
