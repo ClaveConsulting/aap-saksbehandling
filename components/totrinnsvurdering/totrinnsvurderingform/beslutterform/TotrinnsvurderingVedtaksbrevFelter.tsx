@@ -1,6 +1,5 @@
 import { PencilWritingIcon } from '@navikt/aksel-icons';
 import { Link as AkselLink, Checkbox, Detail, HStack, Radio, VStack } from '@navikt/ds-react';
-import { useFeatureFlag } from 'context/UnleashContext';
 import { ToTrinnsVurderingGrunn } from 'lib/types/types';
 import { Behovstype, JaEllerNei, JaEllerNeiOptions, mapBehovskodeTilBehovstype } from 'lib/utils/form';
 import { BeslutterFeltTag } from 'lib/utils/umami/hendelserVarighet';
@@ -35,18 +34,12 @@ export const TotrinnsvurderingVedtaksbrevFelter = ({
   felterOnBlur = () => {},
   endretSidenForrigeGang,
 }: Props) => {
-  const nyeReturÅrsakerFlag = useFeatureFlag('ReturAarsakJournalforing');
-
   const grunnOptions: ValuePair<ToTrinnsVurderingGrunn>[] = [
     { label: 'Skrivefeil', value: 'SKRIVEFEIL' },
     { label: 'For detaljerte beskrivelser', value: 'FOR_DETALJERT' },
     { label: 'Ikke individuell og konkret nok', value: 'IKKE_INDIVIDUELL_OG_KONKRET' },
-    ...(nyeReturÅrsakerFlag
-      ? ([
-          { label: 'Manglende kildehenvisning', value: 'MANGLENDE_KILDEHENVISNING' },
-          { label: 'Manglende journalføring', value: 'MANGLENDE_JOURNALFØRING' },
-        ] as const)
-      : []),
+    { label: 'Manglende kildehenvisning', value: 'MANGLENDE_KILDEHENVISNING' },
+    { label: 'Manglende journalføring', value: 'MANGLENDE_JOURNALFØRING' },
     { label: 'Annen returårsak', value: 'ANNET' },
   ];
 
@@ -54,8 +47,7 @@ export const TotrinnsvurderingVedtaksbrevFelter = ({
   const behovstypeEllerKode =
     Object.keys(Behovstype)[Object.values(Behovstype).indexOf(field.definisjon as Behovstype)] || field.definisjon;
   const eventPrefix = behovstypeEllerKode;
-  const skalViseEndretSidenSistInfo =
-    endretSidenForrigeGang != null && erKvalitetssikring;
+  const skalViseEndretSidenSistInfo = endretSidenForrigeGang != null && erKvalitetssikring;
 
   const visEndretTekst = skalViseEndretSidenSistInfo && endretSidenForrigeGang;
   const visIkkeEndretTekst = skalViseEndretSidenSistInfo && !endretSidenForrigeGang;
