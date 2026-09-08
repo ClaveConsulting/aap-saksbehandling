@@ -1548,12 +1548,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@navikt/aap-felles-prettier@npm:6.3.1":
-  version: 6.3.1
-  resolution: "@navikt/aap-felles-prettier@npm:6.3.1::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Faap-felles-prettier%2F6.3.1%2F5c9bd2fcf5526f519997c1b4c9743bfc87ec089c"
+"@navikt/aap-felles-prettier@npm:6.3.2":
+  version: 6.3.2
+  resolution: "@navikt/aap-felles-prettier@npm:6.3.2::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Faap-felles-prettier%2F6.3.2%2F3061e9e47ea37537d12255bde8eb461dcb45a2e8"
   dependencies:
     prettier: "npm:^3.9.5"
-  checksum: 10c0/e0d9073373ed4ca39ca8e28f6a479e2869525c8d045dd90106aedfd777ccab31f0d6423566f158c92c121cb9d2fa8f88748546fe87d9b1f94c3c6e2c93386002
+  checksum: 10c0/9b97ee89fc390fd5089cf2dca1890227f21512ec26128337cdeace89389caf913c2376c62f5569d631d64fb4d0acce5d75672316b29518fd02fe2a7d605ff315
   languageName: node
   linkType: hard
 
@@ -3089,7 +3089,7 @@ __metadata:
     "@grafana/faro-web-tracing": "npm:2.10.0"
     "@navikt/aap-breveditor": "npm:0.13.0"
     "@navikt/aap-breveditor-css": "npm:0.6.0"
-    "@navikt/aap-felles-prettier": "npm:6.3.1"
+    "@navikt/aap-felles-prettier": "npm:6.3.2"
     "@navikt/aksel": "npm:8.16.1"
     "@navikt/aksel-icons": "npm:8.16.1"
     "@navikt/diagnosekoder": "npm:1.2026.0"
