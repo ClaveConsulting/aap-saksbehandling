@@ -21,6 +21,7 @@ import {
   TildelOppgaveRequest,
   TildelOppgaveResponse,
   TildeltStatus,
+  UføreVedtak,
 } from 'lib/types/oppgaveTypes';
 import { FetchResponse } from 'lib/utils/api';
 import { isLocal } from 'lib/utils/environment';
@@ -149,9 +150,9 @@ export async function fjernHelseopplysningIkon(behandlingRef: string) {
   return await apiFetch<{}>(url, oppgaveApiScope, 'POST', { behandlingRef: behandlingRef });
 }
 
-export async function fjernUføreVedtakIkon(behandlingRef: string) {
+export async function fjernUføreVedtakIkon(uføreVedtak: UføreVedtak) {
   const url = `${oppgaveApiBaseURL}/fjern-uførevedtak-ikon`;
-  return await apiFetch<{}>(url, oppgaveApiScope, 'POST', { behandlingRef: behandlingRef });
+  return await apiFetch<{}>(url, oppgaveApiScope, 'POST', uføreVedtak);
 }
 
 const lokalFakeOppgaveSøk = isLocal();
